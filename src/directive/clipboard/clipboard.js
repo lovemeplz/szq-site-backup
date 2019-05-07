@@ -6,7 +6,6 @@ if (!Clipboard) {
 
 export default {
   bind(el, binding) {
-    console.log('binding', binding)
     if (binding.arg === 'success') {
       el._v_clipboard_success = binding.value
     } else if (binding.arg === 'error') {

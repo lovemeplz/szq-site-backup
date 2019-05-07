@@ -9,8 +9,9 @@
           <LHeader />
         </el-header>
         <el-main>
-          <!-- Target -->
-          <button id="foo" v-clipboard:copy="inputData" v-clipboard:success="clipboardSuccess">按钮</button>
+          <button id="foo" v-clipboard:copy="inputData" v-clipboard:success="clipboardSuccess">复制按钮</button>
+          <button @click="handleSetcontent">setConent</button>
+          <Tinymce ref="tinymce" :value="value" @contentChange="handleGetcontent" />
         </el-main>
         <el-footer>
           <LFooter />
@@ -23,26 +24,32 @@
 import LHeader from './components/header'
 import LSidebar from './components/sidebar'
 import LFooter from './components/footer'
-// import clipboard from '@/directive/clipboard'
+import Tinymce from 'components/Tinymce'
 
 export default {
   name: 'Layout',
-  // directives: {
-  //   clipboard
-  // },
   components: {
     LHeader,
     LSidebar,
-    LFooter
+    LFooter,
+    Tinymce
   },
   data() {
     return {
-      inputData: '123'
+      inputData: '123',
+      value: '<hr /><p><em><a>23</a></em></p>'
     }
   },
   methods: {
     clipboardSuccess(success) {
-      console.log('success', window)
+      console.log('env', process.env.NODE_ENV)
+    },
+    handleGetcontent(val) {
+      console.log('val', val)
+    },
+    handleSetcontent() {
+      console.log('set!!')
+      this.value = 'ppp'
     }
   }
 }
