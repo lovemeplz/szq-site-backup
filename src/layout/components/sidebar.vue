@@ -3,14 +3,15 @@
     <el-menu
       default-active="2"
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
       background-color="#545c64"
       text-color="#fff"
-      active-text-color="#ffd04b">
+      active-text-color="#ffd04b"
+      @open="handleOpen"
+      @close="handleClose"
+    >
       <el-submenu index="1">
         <template slot="title">
-          <i class="el-icon-location"></i>
+          <i class="el-icon-location" />
           <span>导航一</span>
         </template>
         <el-submenu index="1-4">
@@ -19,19 +20,19 @@
         </el-submenu>
       </el-submenu>
       <el-menu-item index="2">
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-menu" />
         <span slot="title">导航二</span>
       </el-menu-item>
       <el-menu-item index="3" disabled>
-        <i class="el-icon-document"></i>
+        <i class="el-icon-document" />
         <span slot="title">导航三</span>
       </el-menu-item>
       <el-menu-item index="4">
-        <i class="el-icon-setting"></i>
+        <i class="el-icon-setting" />
         <span slot="title">导航四</span>
       </el-menu-item>
       <el-menu-item index="5">
-        <i class="el-icon-setting"></i>
+        <i class="el-icon-setting" />
         <span slot="title">导航四</span>
       </el-menu-item>
     </el-menu>
@@ -43,10 +44,10 @@ export default {
   name: 'Sidebar',
   methods: {
     handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+      console.log(key, keyPath)
     },
     handleClose(key, keyPath) {
-      console.log(key, keyPath);
+      console.log(key, keyPath)
     }
   }
 }

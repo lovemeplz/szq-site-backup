@@ -1,32 +1,49 @@
 <template>
-  <div class='layout'>
-   <el-container>
+  <div class="layout">
+    <el-container>
       <el-aside width="200px">
-        <LSidebar/>
+        <LSidebar />
       </el-aside>
       <el-container>
         <el-header>
-          <LHeader/>
+          <LHeader />
         </el-header>
-        <el-main>Main</el-main>
+        <el-main>
+          <!-- Target -->
+          <button id="foo" v-clipboard:copy="inputData" v-clipboard:success="clipboardSuccess">按钮</button>
+        </el-main>
         <el-footer>
-          <LFooter/>
+          <LFooter />
         </el-footer>
       </el-container>
     </el-container>
   </div>
 </template>
-
 <script>
 import LHeader from './components/header'
 import LSidebar from './components/sidebar'
 import LFooter from './components/footer'
+// import clipboard from '@/directive/clipboard'
+
 export default {
   name: 'Layout',
+  // directives: {
+  //   clipboard
+  // },
   components: {
     LHeader,
     LSidebar,
     LFooter
+  },
+  data() {
+    return {
+      inputData: '123'
+    }
+  },
+  methods: {
+    clipboardSuccess(success) {
+      console.log('success', window)
+    }
   }
 }
 </script>
