@@ -7,13 +7,17 @@ import 'normalize.css/normalize.css'
 import '@/styles/index.scss'
 
 import './icons'
+import i18n from './lang' // Internationalization
 
 import router from './router'
 
 Vue.config.productionTip = false
-Vue.use(ElementUI)
+Vue.use(ElementUI, {
+  i18n: (key, value) => i18n.t(key, value)
+})
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  i18n
 }).$mount('#app')
