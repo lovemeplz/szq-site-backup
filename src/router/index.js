@@ -27,6 +27,10 @@ export const constantRouterMap = [
         hidden: true
       }
     ]
+  }, {
+    path: '*',
+    component: () => import('@/views/404.vue'),
+    hidden: true
   }
 ]
 
