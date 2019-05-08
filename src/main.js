@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 import ElementUI from 'element-ui'
-import ClipBoard from '@/directive/clipboard'
+
 import 'element-ui/lib/theme-chalk/index.css'
 import 'normalize.css/normalize.css'
 
+import './icons'
+
 Vue.config.productionTip = false
 Vue.use(ElementUI)
-Vue.use(ClipBoard)
 
 new Vue({
   render: h => h(App)
