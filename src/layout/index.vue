@@ -9,9 +9,9 @@
           <LHeader />
         </el-header>
         <el-main>
-          <button id="foo" v-clipboard:copy="inputData" v-clipboard:success="clipboardSuccess">复制按钮</button>
-          <button @click="handleSetcontent">setConent</button>
-          <Tinymce ref="tinymce" :value="value" @contentChange="handleGetcontent" />
+          <div class="main-container">
+            <router-view ref="router_view" />
+          </div>
         </el-main>
         <el-footer>
           <LFooter />
@@ -24,20 +24,20 @@
 import LHeader from './components/header'
 import LSidebar from './components/sidebar'
 import LFooter from './components/footer'
-import Tinymce from 'components/Tinymce'
+import clipboard from '@/directive/clipboard'
 
 export default {
   name: 'Layout',
   components: {
     LHeader,
     LSidebar,
-    LFooter,
-    Tinymce
+    LFooter
+  },
+  directives: {
+    clipboard
   },
   data() {
     return {
-      inputData: '123',
-      value: '<hr /><p><em><a>23</a></em></p>'
     }
   },
   methods: {
