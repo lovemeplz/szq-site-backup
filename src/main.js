@@ -1,3 +1,4 @@
+// dependencies
 import Vue from 'vue'
 import App from './App.vue'
 import ElementUI from 'element-ui'
@@ -10,6 +11,9 @@ import './icons'
 import i18n from './lang' // Internationalization
 
 import router from './router'
+import store from './store'
+import './permission' // permission control
+import './mock' // simulation data
 
 Vue.config.productionTip = false
 Vue.use(ElementUI, {
@@ -19,5 +23,6 @@ Vue.use(ElementUI, {
 new Vue({
   render: h => h(App),
   router,
-  i18n
+  i18n,
+  store
 }).$mount('#app')

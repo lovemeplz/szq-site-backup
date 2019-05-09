@@ -131,22 +131,21 @@ export default {
       }
     },
     handleLogin() {
-      this.$router.push({ path: '/tech' })
-      console.log('login')
-      // this.$refs.loginForm.validate(valid => {
-      //   if (valid) {
-      //     this.loading = true
-      //     this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
-      //       this.loading = false
-      //       this.$router.push({ path: this.redirect || '/' })
-      //     }).catch(() => {
-      //       this.loading = false
-      //     })
-      //   } else {
-      //     console.log('error submit!!')
-      //     return false
-      //   }
-      // })
+      console.log('store', this.$store)
+      this.$refs.loginForm.validate(valid => {
+        if (valid) {
+          this.loading = true
+          this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
+            this.loading = false
+            this.$router.push({ path: this.redirect || '/' })
+          }).catch(() => {
+            this.loading = false
+          })
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
     },
     afterQRScan() {
       // const hash = window.location.hash.slice(1)
