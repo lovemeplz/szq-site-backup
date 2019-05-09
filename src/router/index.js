@@ -5,7 +5,17 @@ Vue.use(Router)
 
 export const constantRoutes = [
   {
-    path: '/',
+    path: '/redirect',
+    hidden: true,
+    children: [
+      {
+        path: '/redirect/:path*',
+        component: () => import('@/views/redirect')
+      }
+    ]
+  },
+  {
+    path: '/login',
     component: () => import('@/views/login'),
     hidden: true
   },
