@@ -61,6 +61,9 @@ export default {
   height: 100%;
   .el-header{
     padding: 0;
+    // position: fixed;
+    // left: 200px;
+    // right: 0;
     .layout-header{
       width: 100%;
       height: 100%;
@@ -71,7 +74,6 @@ export default {
     }
   }
   .layout-sidebar{
-    width: 200px;
     position: fixed;
     top: 0;
     left: 0;
@@ -80,14 +82,6 @@ export default {
     .el-menu{
       border: 0;
     }
-  }
-  .layout-footer{
-    width: 100%;
-    height: 40px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    background-color: #545c64;
   }
 }
 </style>
