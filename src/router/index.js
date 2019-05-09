@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export const constantRouterMap = [
+export const constantRoutes = [
   {
     path: '/',
     component: () => import('@/views/login'),
@@ -44,6 +44,10 @@ export default new Router({
   scrollBehavior: () => ({
     y: 0
   }),
-  routes: constantRouterMap
+  routes: constantRoutes
 })
+
+export const asyncRoutes = [
+  { path: '*', redirect: '/404', hidden: true }
+]
 

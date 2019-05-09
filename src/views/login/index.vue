@@ -111,6 +111,7 @@ export default {
   watch: {
     $route: {
       handler: function(route) {
+        console.log('route', route)
         this.redirect = route.query && route.query.redirect
       },
       immediate: true
@@ -137,7 +138,7 @@ export default {
           this.loading = true
           this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
             this.loading = false
-            this.$router.push({ path: this.redirect || '/' })
+            this.$router.push({ path: '/tech' || '/' })
           }).catch(() => {
             this.loading = false
           })
