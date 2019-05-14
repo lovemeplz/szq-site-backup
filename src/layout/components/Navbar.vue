@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-header">
+  <div class="navbar">
     <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container" />
 
     <breadcrumb class="breadcrumb-container" />
@@ -92,7 +92,7 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-.layout-header {
+.navbar {
   height: 50px;
   overflow: hidden;
 

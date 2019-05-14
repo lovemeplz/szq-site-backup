@@ -1,87 +1,71 @@
 <template>
-  <div class="layout">
-    <el-container>
-      <el-aside width="200px">
-        <LSidebar />
-      </el-aside>
-      <el-container>
-        <el-header>
-          <LHeader />
-        </el-header>
-        <el-main>
-          <div class="main-container">
-            <router-view ref="router_view" />
-          </div>
-        </el-main>
-        <el-footer>
-          <LFooter />
-        </el-footer>
-      </el-container>
-    </el-container>
+  <div :class="classObj" class="app-wrapper">
+    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
+    <sidebar class="sidebar-container" />
+    <div class="main-container">
+      <navbar />
+      <tags-view />
+      <app-main />
+    </div>
   </div>
 </template>
+
 <script>
-import LHeader from './components/header'
-import LSidebar from './components/sidebar'
-import LFooter from './components/footer'
-import clipboard from '@/directive/clipboard'
+import { Navbar, Sidebar, AppMain, TagsView } from './components'
+import ResizeMixin from '@/mixins/ResizeHandler'
 
 export default {
   name: 'Layout',
   components: {
-    LHeader,
-    LSidebar,
-    LFooter
+    Navbar,
+    Sidebar,
+    AppMain,
+    TagsView
   },
-  directives: {
-    clipboard
-  },
-  data() {
-    return {
+  mixins: [ResizeMixin],
+  computed: {
+    sidebar() {
+      return this.$store.state.app.sidebar
+    },
+    device() {
+      return this.$store.state.app.device
+    },
+    classObj() {
+      return {
+        hideSidebar: !this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
+        withoutAnimation: this.sidebar.withoutAnimation,
+        mobile: this.device === 'mobile'
+      }
     }
   },
   methods: {
-    clipboardSuccess(success) {
-      console.log('env', process.env.NODE_ENV)
-    },
-    handleGetcontent(val) {
-      console.log('val', val)
-    },
-    handleSetcontent() {
-      console.log('set!!')
-      this.value = 'ppp'
+    handleClickOutside() {
+      this.$store.dispatch('closeSideBar', { withoutAnimation: false })
     }
   }
 }
 </script>
 
-<style lang="scss">
-.layout{
-  width: 100%;
-  height: 100%;
-  .el-header{
-    padding: 0;
-    // position: fixed;
-    // left: 200px;
-    // right: 0;
-    .layout-header{
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #FFFFFF;
-      box-shadow: 0 1px 3px #1a1a1a1a;
-      background-clip: content-box;
+<style rel="stylesheet/scss" lang="scss" scoped>
+  @import "~@/styles/mixin.scss";
+  .app-wrapper {
+    @include clearfix;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    &.mobile.openSidebar{
+      position: fixed;
+      top: 0;
     }
   }
-  .layout-sidebar{
-    position: fixed;
+  .drawer-bg {
+    background: #000;
+    opacity: 0.3;
+    width: 100%;
     top: 0;
-    left: 0;
-    bottom: 0;
-    background-color: #545c64;
-    .el-menu{
-      border: 0;
-    }
+    height: 100%;
+    position: absolute;
+    z-index: 999;
   }
-}
 </style>

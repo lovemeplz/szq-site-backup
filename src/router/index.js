@@ -27,7 +27,9 @@ export const constantRoutes = [
     hidden: true,
     children: [
       {
+        name: 'tech',
         path: '/tech',
+        meta: { title: '111' },
         redirect: '',
         component: () => import('@/views/tech'),
         chunkName: 'views/tech',
@@ -36,6 +38,7 @@ export const constantRoutes = [
       {
         name: 'music',
         path: '/music',
+        meta: { title: '222' },
         redirect: '',
         component: () => import('@/views/music'),
         chunkName: 'views/music',
