@@ -14,13 +14,22 @@
       @open="handleOpen"
       @close="handleClose"
     >
-      <el-menu-item index="1">
-        <i class="el-icon-menu" />
-        <span slot="title">导航一</span>
-      </el-menu-item>
+      <el-submenu index="1">
+        <template slot="title">
+          <i class="el-icon-menu" />
+          <span slot="title"><router-link :to="{ path: '/tech' }">技术</router-link></span>
+        </template>
+        <el-menu-item index="1-1">
+          <span slot="title"><router-link :to="{ path: 'tech/git' }">GIT</router-link></span>
+        </el-menu-item>
+        <el-menu-item index="1-2">选项2</el-menu-item>
+        <el-menu-item index="1-3">选项3</el-menu-item>
+        <el-menu-item index="1-4">选项4</el-menu-item>
+      </el-submenu>
+
       <el-menu-item index="2">
         <i class="el-icon-menu" />
-        <span slot="title">导航二</span>
+        <span slot="title"><router-link to="music">音乐</router-link></span>
       </el-menu-item>
       <el-menu-item index="3" disabled>
         <i class="el-icon-document" />

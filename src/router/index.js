@@ -15,7 +15,7 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/login',
+    path: '',
     component: () => import('@/views/login'),
     hidden: true
   },
@@ -29,7 +29,7 @@ export const constantRoutes = [
       {
         name: 'tech',
         path: '/tech',
-        meta: { title: '111' },
+        meta: { title: '技术' },
         redirect: '',
         component: () => import('@/views/tech'),
         chunkName: 'views/tech',
@@ -38,11 +38,31 @@ export const constantRoutes = [
       {
         name: 'music',
         path: '/music',
-        meta: { title: '222' },
+        meta: { title: '音乐' },
         redirect: '',
         component: () => import('@/views/music'),
         chunkName: 'views/music',
         hidden: true
+      },
+      {
+        name: 'git',
+        path: '/tech/git',
+        meta: { title: 'GIT' },
+        redirect: '',
+        component: () => import('@/views/tech/git'),
+        chunkName: 'views/tech/git',
+        hidden: true,
+        children: [
+          {
+            name: 'git-check',
+            path: '/tech/git/check',
+            meta: { title: '查看详情' },
+            redirect: '',
+            component: () => import('@/views/tech/git/check.vue'),
+            chunkName: 'views/tech/git/check',
+            hidden: true
+          }
+        ]
       }
     ]
   }, {
