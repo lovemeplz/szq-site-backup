@@ -1,5 +1,11 @@
 <template>
   <div class="views-music">
+    <p>引入echarts图标,柱状图文章上传时间和数量,饼图展示各个模块文章数</p>
+    <p>canvans时钟</p>
+    <p>评论待定</p>
+    <p>各个模块操作日志</p>
+    <p>换肤,导出,视频播放</p>
+    <p>国际化,引导页</p>
     <ButtonList :opt-btns="optBtns" />
     <!--可自定义按钮的样式、show/hide临界点、返回的位置  -->
     <!--如需文字提示，可在外部添加element的<el-tooltip></el-tooltip>元素  -->
@@ -14,6 +20,7 @@ import ButtonList from '@/components/ButtonList/ButtonList'
 import BackToTop from '@/components/BackToTop'
 import { basicMixin } from '@/mixins/basic'
 export default {
+  name: 'Tech',
   components: {
     ButtonList,
     BackToTop

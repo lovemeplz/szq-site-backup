@@ -3,12 +3,30 @@
     <router-view />
     <el-card v-for="(i, index) in 11" v-show="showCardList" :key="index" class="box-card" shadow="hover">
       <div slot="header" class="clearfix">
-        <span @click="handleCheck2">卡片名称</span>
-        <el-button style="float: right; padding: 3px 0" type="text" @click.native="handleCheck">操作按钮</el-button>
+        <span @click="handleCheck2">标题</span>
+        <el-dropdown style="float: right">
+          <span class="el-dropdown-link">
+            <i class="el-icon-more" />
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>编辑</el-dropdown-item>
+            <el-dropdown-item>发布</el-dropdown-item>
+            <el-dropdown-item>删除</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </div>
-      <div v-for="o in 4" :key="o" class="text item">
-        {{ '列表内容 ' + o }}
-      </div>s
+      <div class="text item">
+        列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容列表内容
+      </div>
+      <div class="footer">
+        <div class="status">
+          <span class="dot" />
+          <div class="text">已发布</div>
+        </div>
+        <div class="time">
+          2018/12/23 12:32:12
+        </div>
+      </div>
     </el-card>
   </div>
 </template>
@@ -43,6 +61,40 @@ export default {
       width: 360px!important;
       margin-top: 20px;
       cursor: pointer;
+      .el-card__body{
+        .text{
+          font-size: 12px;
+          line-height: 1.4s;
+          overflow: hidden;
+          -webkit-line-clamp: 4; // 仅显示两行就写3
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+        }
+        .footer{
+          margin-top: 28px;
+          display: flex;
+          .status{
+            display: flex;
+            justify-content: center;
+            .dot{
+              display: block;
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              background: green;
+              margin-right: 8px;
+            }
+            .text{
+              font-size: 12px;
+            }
+          }
+          .time{
+            flex: 1;
+            color: #ccc;
+            text-align: right;
+          }
+        }
+      }
     }
   }
 </style>
