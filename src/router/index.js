@@ -54,12 +54,30 @@ export const constantRoutes = [
         hidden: true,
         children: [
           {
-            name: 'git-check',
-            path: '/tech/git/check',
-            meta: { title: '查看详情' },
+            name: 'add',
+            path: '/tech/git/add',
+            meta: { title: '新增' },
             redirect: '',
-            component: () => import('@/views/tech/git/check.vue'),
-            chunkName: 'views/tech/git/check',
+            component: () => import('@/views/tech/git/src/add'),
+            chunkName: 'views/tech/git/src/add',
+            hidden: true
+          },
+          {
+            name: 'update',
+            path: '/tech/git/update',
+            meta: { title: '编辑' },
+            redirect: '',
+            component: () => import('@/views/tech/git/src/update'),
+            chunkName: 'views/tech/git/src/update',
+            hidden: true
+          },
+          {
+            name: 'check',
+            path: 'check',
+            meta: { title: '查看' },
+            redirect: '',
+            component: () => import('@/views/tech/git/src/check'),
+            chunkName: 'views/tech/git/src/check',
             hidden: true
           }
         ]

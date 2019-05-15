@@ -52,7 +52,9 @@ export default {
     }
   },
   watch: {
-    $route() {
+    $route(val) {
+      console.log('val', val.path)
+      if (val.path.includes('add') || val.path.includes('update') || val.path.includes('check')) return
       this.addTags()
       this.moveToCurrentTag()
     },

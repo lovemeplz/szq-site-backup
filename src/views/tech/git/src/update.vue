@@ -1,10 +1,10 @@
 <template>
-  <div>check</div>
+  <div>update</div>
 </template>
 
 <script>
 export default {
-
+  name: 'GitCheck'
 }
 </script>
 

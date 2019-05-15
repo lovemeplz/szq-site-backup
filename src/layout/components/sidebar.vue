@@ -20,7 +20,7 @@
           <span slot="title"><router-link :to="{ path: '/tech' }">技术</router-link></span>
         </template>
         <el-menu-item index="1-1">
-          <span slot="title"><router-link :to="{ path: 'tech/git' }">GIT</router-link></span>
+          <span slot="title"><router-link :to="{ path: '/tech/git' }">GIT</router-link></span>
         </el-menu-item>
         <el-menu-item index="1-2">选项2</el-menu-item>
         <el-menu-item index="1-3">选项3</el-menu-item>
